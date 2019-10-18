@@ -9,7 +9,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'localhost:3030/',
+        'http://localhost:3030/',
       );
       setData(result.data);
       console.log(data);

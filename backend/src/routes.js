@@ -14,6 +14,6 @@ routes.get('/listTorrent/:name', TorrentController.listTorrent)
 
 
 routes.get('/', (req, res) => {
-  return res.json({ msg: "Hello World" });
+  return res.send('bla');
 })
 module.exports = routes;
