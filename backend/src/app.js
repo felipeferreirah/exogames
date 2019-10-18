@@ -13,6 +13,8 @@ class App {
 
   middlewares() {
     this.app.use(cors());
+    this.app.use(cors());
+    this.app.options('*', cors());
     this.app.use(bodyParser.json());
   }
 
