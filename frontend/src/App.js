@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {  useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
+ 
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const App = () => {
+  const [data, setData] = useState({ hits: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'localhost:3030/',
+      );
+      setData(result.data);
+      console.log(data);
+    };
+    fetchData();
+  }, []);
+
+
+  return (
+    <div>
+    {data.hits.map(item => (
+          <li key={item.objectID}>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))}
+    </div>
+  );
 }
+
 
 export default App;
