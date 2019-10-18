@@ -1,7 +1,6 @@
 const express = require('express');
 const routes = express.Router();
 
-const api = require('./services/api')
 
 /**
  *  - List all torrents
@@ -10,7 +9,7 @@ const api = require('./services/api')
  */
 
 
- routes.get('/home', (req, res) => {
+ routes.get('/showAll', (req, res) => {
    return res.json();
  })
 
