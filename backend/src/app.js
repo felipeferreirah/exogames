@@ -14,7 +14,6 @@ class App {
   middlewares() {
     this.app.use(cors());
     this.app.use(bodyParser.json());
-    this.app.use(bodyParser.urlencoded({extended: false}))
   }
 
   routes() {

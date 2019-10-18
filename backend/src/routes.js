@@ -3,12 +3,15 @@ const routes = express.Router();
 
 const api = require('./services/api')
 
-routes.get('/teste', (req,res) => {
-  return res.json(api)
-})
+/**
+ *  - List all torrents
+ *  - List one Torrent
+ *  - 
+ */
 
-routes.get('/', (req, res) => {
-  return res.send('<h1>Léo</h1>')
-})
+
+ routes.get('/home', (req, res) => {
+   return res.json();
+ })
 
 module.exports = routes;
