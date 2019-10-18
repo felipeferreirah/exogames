@@ -9,8 +9,12 @@ const routes = express.Router();
  */
 
 
- routes.get('/showAll', (req, res) => {
-   return res.json();
- })
+routes.get('/listAll', (req, res) => {
+  return res.json({ msg: "Hello World" });
+})
 
+
+routes.get('/', (req, res) => {
+  return res.json({ msg: "Hello World" });
+})
 module.exports = routes;
