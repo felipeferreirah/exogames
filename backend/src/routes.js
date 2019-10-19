@@ -9,11 +9,11 @@ const TorrentController = require('./app/controllers/TorrentController')
  */
 
 
-routes.get('/listTorrents', TorrentController.listTorrents)
-routes.get('/listTorrent/:name', TorrentController.listTorrent)
+routes.get('/', TorrentController.listTorrents)
+routes.get('/search/:query', TorrentController.search)
 
 
-routes.get('/', (req, res) => {
-  return res.send('bla');
-})
+// routes.get('/', (req, res) => {
+//   return res.send('bla');
+// })
 module.exports = routes;
