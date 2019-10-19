@@ -11,8 +11,7 @@ class App {
     this.routes();
   }
 
-  middlewares() {
-    this.app.use(cors());
+  middlewares() { 
     this.app.use(cors());
     this.app.options('*', cors());
     this.app.use(bodyParser.json());

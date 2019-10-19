@@ -1,33 +1,29 @@
-import React, {  useState, useEffect } from 'react';
-import './App.css';
-import axios from 'axios';
- 
-
-const App = () => {
-  const [data, setData] = useState({ hits: [] });
+import React, { useState ,useEffect} from 'react';
+import axios from 'axios'; 
+function App() {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        'http://localhost:3030/',
-      );
-      setData(result.data);
-      console.log(data);
-    };
-    fetchData();
+      axios.get( 'http://localhost:3030/search/gta')
+    .then(response => {
+      console.log(response.data);
+      setPosts(response.data);
+    
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }, []);
 
-
+    
   return (
-    <div>
-    {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-    </div>
+    <ul>
+      {posts.map((item,index) => (
+        <li key={index}>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      ))}
+    </ul>
   );
 }
-
-
 export default App;
