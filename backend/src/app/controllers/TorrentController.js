@@ -14,13 +14,12 @@ TorrentSearchApi.enableProvider('1337x')
 class TorrentController {
   async listTorrents(req, res){
     
-    return res.json();
+
+    return res.json({error : "Coming soon"});
   }
-  async listTorrent(req, res) {
-    const { name } = req.params;
-    req.query.length ? console.log("existe") : console.log("nada");
+  async search(req, res) {
+    let torrent = await TorrentSearchApi.search(req.params.query, 'Games')
     
-    let torrent = await TorrentSearchApi.search(name, 'Games')
     return res.json(torrent);
   }
 }
