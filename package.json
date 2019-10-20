@@ -10,6 +10,7 @@
     "body-parser": "^1.19.0",
     "concurrently": "^5.0.0",
     "cors": "^2.8.5",
+    "dateformat": "^3.0.3",
     "express": "^4.17.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

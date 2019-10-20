@@ -1,14 +1,8 @@
 const TorrentSearchApi = require('torrent-search-api');
 
+const {convertDate} = require('../../util/util');
 // TorrentSearchApi.enablePublicProviders();
 TorrentSearchApi.enableProvider('1337x')
-/**
- * index    = retorna uma listagem de sessões
- * show     = lista uma única sessão
- * store    = cria uma sessão
- * update   = altera uma sessão
- * destroy  = destroi uma sessão
- */
 
 
 class TorrentController {
@@ -17,10 +11,23 @@ class TorrentController {
 
     return res.json({error : "Coming soon"});
   }
+
   async search(req, res) {
-    let torrent = await TorrentSearchApi.search(req.params.query, 'Games')
+    let getTorrents = await TorrentSearchApi.search(req.params.query, 'Games');   
+    let torrents = [];
+    getTorrents.map(torrent => {
+      torrents.push({
+        title: torrent.title,
+        time: convertDate(torrent.time),
+        peers: torrent.peers,
+        seeds: torrent.seeds,
+        size: torrent.size
+      })
+    })
+    const torrentHtmlDetail = await TorrentSearchApi.getTorrentDetails(getTorrents[1]);
+    console.log(torrentHtmlDetail)
     
-    return res.json(torrent);
+    return res.json(torrents);
   }
 }
 
