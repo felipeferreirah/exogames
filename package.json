@@ -61,7 +61,7 @@
   "scripts": {
     "client": "node frontend/scripts/start.js",
     "server": "nodemon backend/src/server.js",
-    "start": "concurrently \"npm run server\" \"npm run client\" \"electron .\"",
+    "start": "concurrently \"npm run server\" \"BROWSER=none npm run client\" \"wait-on http://localhost:3000 && electron .\"",
     "back": "nodemon backend/src/server.js",
     "front": "react-scripts start",
     "electron": "electron .",
