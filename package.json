@@ -12,6 +12,7 @@
     "cors": "^2.8.5",
     "dateformat": "^3.0.3",
     "express": "^4.17.1",
+    "node-html-parser": "^1.1.16",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "torrent-search-api": "^2.0.10"
