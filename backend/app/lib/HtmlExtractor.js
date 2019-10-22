@@ -8,7 +8,7 @@ module.exports = function extractData(torrentHTML) {
      * Get images
      */
     let img = root.querySelectorAll("img")
-    try{
+    try {
         data.cover = img[0].rawAttributes['data-original'];
 
         data.print = [];
@@ -16,7 +16,7 @@ module.exports = function extractData(torrentHTML) {
             data.print.push(element.rawAttributes['data-original']);
         });
         data.print.shift();
-    } catch (err){
+    } catch (err) {
         data.print = null
     }
     /**
