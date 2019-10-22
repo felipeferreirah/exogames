@@ -15,7 +15,8 @@
     "node-html-parser": "^1.1.16",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "torrent-search-api": "^2.0.10"
+    "torrent-search-api": "^2.0.10",
+    "wait-on": "^3.3.0"
   },
   "devDependencies": {
     "autoprefixer": "6.7.2",
@@ -62,7 +63,7 @@
   "scripts": {
     "client": "node frontend/scripts/start.js",
     "server": "nodemon backend/src/server.js",
-    "start": "concurrently \"npm run server\" \"BROWSER=none npm run client\" \"wait-on http://localhost:3000 && electron .\"",
+    "start": "concurrently \"npm run server\" \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
     "back": "nodemon backend/src/server.js",
     "front": "react-scripts start",
     "electron": "electron .",
