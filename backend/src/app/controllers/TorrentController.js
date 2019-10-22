@@ -2,6 +2,7 @@ const TorrentSearchApi = require('torrent-search-api');
 const extractData = require('../lib/HtmlExtractor')
 
 const {convertDate} = require('../../util/util');
+const fs = require('fs');
 
 // TorrentSearchApi.enablePublicProviders();
 TorrentSearchApi.enableProvider('1337x')
@@ -17,20 +18,23 @@ class TorrentController {
   async search(req, res) {
     console.time()
     let getTorrents = await TorrentSearchApi.search(req.params.query, 'Games'); 
-    const torrentHtmlDetail = await TorrentSearchApi.getTorrentDetails(getTorrents[1]);
+
+
+    // let torrentHtmlDetail = await TorrentSearchApi.getTorrentDetails(getTorrents[0]);
+    let torrentHtmlDetail = await Promise.all(getTorrents.map(torrent =>  TorrentSearchApi.getTorrentDetails(torrent)));
 
     let torrents = [];
-    getTorrents.map(torrent => {
-      torrents.push({
-        title: torrent.title,
-        time: convertDate(torrent.time),
-        peers: torrent.peers,
-        seeds: torrent.seeds,
-        size: torrent.size,
-        data: extractData(torrentHtmlDetail)
+    getTorrents.map((torrent, index) => {
+        torrents.push({
+          title: torrent.title,
+          time: convertDate(torrent.time),
+          peers: torrent.peers,
+          seeds: torrent.seeds,
+          size: torrent.size,
+          data: extractData(torrentHtmlDetail[index])
       })
     })
-
+    console.timeEnd();
     return res.json(torrents);
   }
 }
