@@ -62,9 +62,9 @@
   },
   "scripts": {
     "client": "node frontend/scripts/start.js",
-    "server": "nodemon backend/src/server.js",
+    "server": "nodemon backend/server.js",
     "start": "concurrently \"npm run server\" \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
-    "back": "nodemon backend/src/server.js",
+    "back": "nodemon backend/server.js",
     "front": "react-scripts start",
     "electron": "electron .",
     "build": "node frontend/scripts/build.js",
