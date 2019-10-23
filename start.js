@@ -10,7 +10,7 @@ function createWindow() {
   
   app.setAboutPanelOptions({    
     applicationName: 'Exogames',    
-    applicationVersion: '0.0.1',  
+    applicationVersion: '0.0.2',  
   });
 
   mainWindow.on('closed', () => mainWindow = null);
