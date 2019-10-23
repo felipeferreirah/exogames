@@ -1,7 +1,7 @@
 const TorrentSearchApi = require("torrent-search-api");
-const extractData = require("../lib/HtmlExtractor");
+const extractData = require("../helpers/HtmlExtractor");
 
-const { convertDate } = require("../../util/util");
+const { convertDate } = require("../helpers/util");
 
 // TorrentSearchApi.enablePublicProviders();
 TorrentSearchApi.enableProvider("1337x");

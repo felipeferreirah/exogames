@@ -1,5 +1,4 @@
 const { parse } = require('node-html-parser');
-const fs = require('fs')
 
 module.exports = function extractData(torrentHTML) {
     var data = {}
