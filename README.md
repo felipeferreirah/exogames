@@ -1,1 +1,3 @@
 # exogames
+
+#config
