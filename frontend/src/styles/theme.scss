@@ -1,0 +1,39 @@
+// Resolução
+// A resolução do projeto definido por dispositivos.
+// --------------------------------------------------
+@mixin phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+// Variables
+// --------------------------------------------------
+// Cores nomeadas para padronizar, organizar e facilitar a chamada.
+@import "variable.scss";
+
+// Icons
+// Inclusão dos icones para utilizar no projeto.
+// --------------------------------------------------
+@import "../assets/icons/icons.scss";
+
+// Fonts
+// Inclusão de todas as fonts nativas.
+// --------------------------------------------------
+@import "../assets/fonts/fonts.scss";
+
+// Global
+// Todos os estilos globais comuns do projeto.
+// Os resets necessários para fluir melhor o desenvolvimento
+// --------------------------------------------------
+@import "global";
+

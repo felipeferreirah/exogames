@@ -1,0 +1,46 @@
+// Os resets necessários para fluir melhor o desenvolvimento
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  
+}
+ 
+::selection {
+	background-color: $primary;  
+	color: $secondary;  
+	text-shadow: none;
+}
+
+body{
+    font-family: 'Poppins';
+    font-weight: normal;
+}
+#root{
+    width:100%;
+    padding-bottom: 50px;
+}
+.container{
+    border:1px solid $primary; 
+  
+     &__tab-top{
+        border:1px solid $primary;
+     }
+
+     &__wrapper{
+        flex: 1;
+     }
+
+     .tab-bottom{
+        position:fixed;
+        left:0;
+        bottom:0;
+        height:50px;
+     }
+}
+
+ h1{
+     color:$primary;
+     font-size:30px;
+ }
