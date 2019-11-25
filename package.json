@@ -88,7 +88,7 @@
     "server": "nodemon backend/server.js",
     "start": "concurrently \"npm run server\" \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
     "back": "nodemon backend/server.js",
-    "front": "react-scripts start",
+    "front": "concurrently \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
     "electron": "electron .",
     "build": "node frontend/scripts/build.js",
     "test": "node frontend/scripts/test.js --env=jsdom"

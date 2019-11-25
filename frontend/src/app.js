@@ -18,9 +18,9 @@ export default function App() {
     <TabBottom className="container__tab-bottom" />
     <Switch> 
       <Route path={["/home", "/"]} exact component={Explorar} /> 
-      <Route path="/search" component={Search} /> 
-      <Route path="/messenger" exact component={Messenger}      /> 
-      <Route path="/notification" exact component={Notification}      /> 
+      <Route path="/search"              component={Search} /> 
+      <Route path="/messenger"     exact component={Messenger}      /> 
+      <Route path="/notification"  exact component={Notification}      /> 
     </Switch>
   </>
     )

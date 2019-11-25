@@ -6,13 +6,13 @@ function Explorar() {
 
   useEffect(() => {
     setTorrents('');
-      axios.get( 'http://localhost:3030/search/gta:3030')
+      axios.get('http://localhost:3030/search/diablo')
     .then(response => {
       console.log(response.data);
       setTorrents(response.data);
     })
     .catch(error => {
-      console.log(error);
+      console.log(`Ocorreu algum erro: ${error} `);
     });
   }, []);
 
@@ -22,6 +22,7 @@ function Explorar() {
       {torrents.map((torrent,index) => (
         <li key={index}>
           <a href={torrent.url}>{torrent.title}</a>
+          <img src={torrent.data.cover} alt={torrent.title}/>
         </li>
       ))}
     </ul>
