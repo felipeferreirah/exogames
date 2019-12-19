@@ -2,17 +2,17 @@
 
   //Router imports
   import { spring, AnimatedSwitch,AnimatedRoute } from 'react-router-transition'
-  import { BrowserRouter as Router, Route } from 'react-router-dom'
+  import { BrowserRouter as Router, Route }       from 'react-router-dom'
 
   //Chamando todas as pages
-  import Explorar from './pages/explorar/explorar';
-  import Search from './pages/search/search'; 
-  import Plus from './components/plus/plus';
-  import Messenger from './pages/messenger/messenger'; 
+  import Explorar     from './pages/explorar/explorar';
+  import Search       from './pages/search/search'; 
+  import Plus         from './components/plus/plus';
+  import Messenger    from './pages/messenger/messenger'; 
   import Notification from './pages/notification/notification'; 
   //Chamando todos os elements
-  import TabTop from './components/tab-top/tab-top';
-  import TabBottom from './components/tab-bottom/tab-bottom';  
+  import TabTop       from './components/tab-top/tab-top';
+  import TabBottom    from './components/tab-bottom/tab-bottom';  
 
   //Chamando todos os helpers
   // import ScrollToTop from './elements/helper/ScrollToTop.js';
@@ -92,16 +92,7 @@
       },
     };
 
-  // ******************************************************************************
-  // ************************* Explicando o Router ********************************
-  //
-  // <Route> ************* Passando os props para serem acessados pelos components.
-  // <Route> -> <div> **** Div que engloba todas as divs para (n) ultilidades.
-  // <ScrollToTop> ******* Helper para dar scroll depois da simulação do DOM.
-  // <AnimatedRoute> ***** Mostra ou esconde o component dependendo do path (url).
-  // <AnimatedSwitch> **** Responsavel pela troca de pages.
-  // basename={process.env.PUBLIC_URL}
-
+    
 export default function App() { 
 
      return (<Router>

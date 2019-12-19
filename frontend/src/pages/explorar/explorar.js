@@ -6,13 +6,13 @@ function Explorar() {
 
   useEffect(() => {
     setTorrents('');
-      axios.get('http://localhost:3030/search/diablo')
+      axios.get('http://localhost:3030/search/darksider')
     .then(response => {
       console.log(response.data);
       setTorrents(response.data);
     })
     .catch(error => {
-      console.log(`Ocorreu algum erro: ${error} `);
+      console.log(`Ocorreu erro: ${error} `);
     });
   }, []);
 
