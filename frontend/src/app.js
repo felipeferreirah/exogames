@@ -9,13 +9,13 @@ import { Route, Switch } from 'react-router-dom'
   import Notification from './pages/notification/notification'; 
 
   //Chamando todos os elements
-  // import TabTop from './components/tab-top/tab-top';
+  import TabTop from './components/tab-top/tab-top'; 
   import TabBottom from './components/tab-bottom/tab-bottom';  
 
 export default function App() {
   return (
   <>
-    <TabBottom className="container__tab-bottom" />
+    <TabTop className="container__tab-top"/>
     <Switch> 
       <Route path={["/home", "/"]} exact component={Explorar} /> 
       <Route path="/search"              component={Search} /> 

@@ -4,9 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $white;
+    background: $dark;
     position:fixed;
-    bottom:0;
+    bottom:0; 
     
     &__item{
         cursor: pointer ;

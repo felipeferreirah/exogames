@@ -18,27 +18,10 @@ body{
     font-weight: normal;
 }
 #root{
-    width:100%;
-    padding-bottom: 50px;
-}
-.container{
-    border:1px solid $primary; 
-  
-     &__tab-top{
-        border:1px solid $primary;
-     }
-
-     &__wrapper{
-        flex: 1;
-     }
-
-     .tab-bottom{
-        position:fixed;
-        left:0;
-        bottom:0;
-        height:50px;
-     }
-}
+    width:100%; 
+    background-color:#ececec;
+} 
+ 
 
  h1{
      color:$primary;
