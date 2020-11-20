@@ -22,7 +22,7 @@ import './logo.scss';
           <path d="M343.5 -69.67H647.0419999999999V8.5H343.5z"></path>
         </clipPath>
       </defs>
-      <g clip-path="url(#_clipPath_6dMNwCdOySyGZJKbbzTfLOlWsCTATMxi)">
+      <g clipPath="url(#_clipPath_6dMNwCdOySyGZJKbbzTfLOlWsCTATMxi)">
         <path
           fill="none"
           stroke={color}

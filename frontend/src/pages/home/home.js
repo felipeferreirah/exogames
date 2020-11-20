@@ -4,15 +4,11 @@ import './home.scss';
 
 function Home() {
   const [torrents, setTorrents] = useState([]);
-  const [queryTorrent, setQueryTorrent] = useState([]);
-
-  const WAIT_INTERVAL = 1000;
-  const ENTER_KEY = 13;
+  const [queryTorrent, setQueryTorrent] = useState("macOs");
 
   const onChangeHandler = e => {
     setQueryTorrent(e.target.value)
   }
-
 
   const callTorrent = (param) =>{
     axios.get(`http://127.0.1:3030/search/${param}`)
@@ -21,9 +17,6 @@ function Home() {
     });
   };
 
-  useEffect(() => {
-    setTorrents('');
-  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
