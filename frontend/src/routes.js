@@ -5,12 +5,12 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import { AnimatedRoute } from 'react-router-transition';
 
 //Chamando todas as pages
-import Home from './pages/website/home/home';
+import Home from './pages/home/home';
 import Jobs from './pages/website/jobs/jobs';
 import Reports from './pages/website/reports/reports';
 import JobDetail from './pages/website/job-detail/job-detail';
 import HomeAdmin from './pages/admin/home/home-admin';
-import Login from './pages/admin/login/login';
+import Download from './pages/Download/Download';
 import NovoReport from './pages/admin/novo-report/novo-report';
 import NovoJobs from './pages/admin/novo-jobs/novo-jobs';
 
@@ -45,9 +45,9 @@ export default function App() {
   return (
   <>
     <AnimatedRoute
-    path={["*/login"]}
+    path={["*/download"]}
     exact
-    component={Login}
+    component={Download}
     atEnter={{ offset: 100,opacity:0 }}
     atActive={{ offset: 0,opacity:90 }}
     atLeave={{ offset: 100,opacity:0 }}

@@ -10,9 +10,9 @@ export default function Nav(props) {
   <>
     <nav className={ `nav  ${ props.className }`}>
       <a href="#venture" >  GAMES     </a>
-      <a href="#how" >      LIBARY        </a> 
-      <a href="#team" >     PREFERENCES             </a> 
-      <Link to="/admin/" >  DOWNLOAD             </Link>
+      <a href="#how" >      LIBARY        </a>
+      <a href="#team" >     PREFERENCES             </a>
+      <Link to="/download" >  DOWNLOAD             </Link>
     </nav>
   </>
   );
