@@ -6,25 +6,32 @@ function Home() {
   const [torrents, setTorrents] = useState([]);
   const [queryTorrent, setQueryTorrent] = useState([]);
 
-  const onChangeHandler = event => {
-    setQueryTorrent(event.target.value);
-    callTorrent(queryTorrent);
+  const WAIT_INTERVAL = 1000;
+  const ENTER_KEY = 13;
+
+  const onChangeHandler = e => {
+    setQueryTorrent(e.target.value)
   }
 
 
   const callTorrent = (param) =>{
-    axios.get('http://127.0.1:3030/search/gtav')
-  .then((res) => {
-    console.log(res.data)
-    setTorrents(res.data)
-  });
-
+    axios.get(`http://127.0.1:3030/search/${param}`)
+    .then((res) => {
+      setTorrents(res.data)
+    });
   };
 
   useEffect(() => {
     setTorrents('');
-    callTorrent('games');
   }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      callTorrent(queryTorrent);
+    }, 800);
+    return () => clearTimeout(timer);
+
+  }, [queryTorrent]);
 
 
 

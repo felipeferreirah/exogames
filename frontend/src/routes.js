@@ -18,9 +18,6 @@ import Language from "./services/translate/language";
 
 export default function App() {
 
-  const subdomain = window.location.hostname.split('.')[0];
-  const selectLanguage = subdomain === 'en' ? 'english' : 'portugues';
-  const lang = Language[selectLanguage];
 
   return (
   <>
@@ -41,8 +38,7 @@ export default function App() {
 
     <Route path={["/home","/jobs", "/", "/home/*","/reports"]} exact component={Header} />
     <Switch>
-      <Route path={["/home", "/", "/home/*"]} exact  render={() => <Home {...lang} language={lang}/>} />
-
+      <Route path={["/home", "/", "/home/*"]} exact  component={Home} />
     </Switch>
     <Route path={["/home","/jobs*", "/", "/home/*","/reports"]} exact component={Footer} />
   </>
