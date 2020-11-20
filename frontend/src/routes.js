@@ -65,10 +65,6 @@ export default function App() {
       <Route path="/jobs" exact component={Jobs} />
       <Route path="/reports" exact component={Reports} />
       <Route path="/jobs/detail/:idJob?"   component={JobDetail} />
-      <PrivateRoute path="/admin" exact component={HomeAdmin} />
-      <PrivateRoute path="/admin/jobs/novo/" component={NovoJobs} />
-      <PrivateRoute path="/admin/jobs/editar/:idJob?" component={NovoJobs} />
-      <PrivateRoute path="/admin/reports/novo" component={NovoReport} />
     </Switch>
     <Route path={["/home","/jobs*", "/", "/home/*","/reports"]} exact component={Footer} />
     <Route path={["/admin*"]} exact component={FooterAdmin} />

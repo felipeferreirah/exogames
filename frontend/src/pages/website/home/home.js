@@ -6,14 +6,19 @@ function Home() {
   const [torrents, setTorrents] = useState([]);
   const [queryTorrent, setQueryTorrent] = useState([]);
 
-
   const onChangeHandler = event => {
     setQueryTorrent(event.target.value);
     callTorrent(queryTorrent);
-  };
+  }
+
 
   const callTorrent = (param) =>{
-   console.log(param);
+    axios.get('http://127.0.1:3030/search/gtav')
+  .then((res) => {
+    console.log(res.data)
+    setTorrents(res.data)
+  });
+
   };
 
   useEffect(() => {
