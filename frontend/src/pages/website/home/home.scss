@@ -1,0 +1,38 @@
+@import './../../../styles/global.scss';
+.explorar{
+
+  .explorar__cards{
+
+    width:100%;
+    max-width:1980px;
+    height:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  .explorar__card{
+
+    width: calc(25% - 10px);
+    margin:5px;
+    background:$secondary;
+    display: flex;
+    flex-direction: column;
+
+    .explorar__img{
+
+      width: 100%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .explorar__card-info{
+      width:100%;
+      margin-top:auto;
+    }
+
+
+  }
+
+}

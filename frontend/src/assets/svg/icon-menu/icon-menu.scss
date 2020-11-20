@@ -1,0 +1,60 @@
+@import './../../../styles/global.scss';
+
+ #nav-icon {
+  width: 28px;
+  height: 15px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  z-index: 1;
+
+  @include for-tablet-landscape-up{
+    display: none;
+  }
+
+}
+
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: $secondary;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .1s ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+#nav-icon span:nth-child(2) {
+  top: 4px;
+  transform-origin: left center;
+  opacity: 0;
+}
+
+#nav-icon span:nth-child(3) {
+  top: 10px;
+  transform-origin: left center;
+}
+
+#nav-icon.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: -3px;
+}
+
+#nav-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#nav-icon.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 17px;
+}

@@ -1,0 +1,29 @@
+@import './../../styles/global.scss';
+
+.header-min{
+  min-height:80px;
+  background:$dark;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+
+  .header-min__svg {
+    max-width: 100px;
+    transition: all 0.2s;
+  }
+  .header-min__logout{
+    color:$secondary;
+    text-decoration: none;
+    font-size:18px;
+  }
+
+  .header-min__center{
+    width:100%;
+    max-width: 1170px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

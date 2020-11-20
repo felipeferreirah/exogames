@@ -1,0 +1,18 @@
+@import './../../styles/global.scss';
+
+.button{
+  background:$primary;
+  color:$white;
+  display: inline-block;
+  padding:10px 30px;
+  text-decoration: none;
+  font-size:16px;
+  border:none;
+
+  &.link{
+    background:transparent;
+    color:$primary;
+    text-decoration: underline;
+    padding:10px;
+  }
+}

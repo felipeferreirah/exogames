@@ -11,14 +11,14 @@ class App {
     this.routes();
   }
 
-  middlewares() { 
+  middlewares() {
     this.app.use(cors());
     this.app.options('*', cors());
     this.app.use(bodyParser.json());
   }
 
   routes() {
-    this.app.use(routes)
+    this.app.use(routes);
   }
 }
 

@@ -1,29 +1,26 @@
+// Resolução
+// A resolução do projeto definido por dispositivos.
+// --------------------------------------------------
+@import "devices.scss";
+
+// Variables
+// Cores nomeadas para padronizar, organizar e facilitar a chamada.
+// --------------------------------------------------
+@import "variable.scss";
+
+// Icons
+// Inclusão dos icones para utilizar no projeto.
+// --------------------------------------------------
+@import "../assets/icons/icons.scss";
+
+// Fonts
+// Inclusão de todas as fonts nativas.
+// --------------------------------------------------
+@import "../assets/fonts/fonts.scss";
+
+// App
+// Todos os estilos globais comuns do projeto.
 // Os resets necessários para fluir melhor o desenvolvimento
-* {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-  
-}
- 
-::selection {
-	background-color: $primary;  
-	color: $secondary;  
-	text-shadow: none;
-}
+// --------------------------------------------------
+@import "app.scss";
 
-body{
-    font-family: 'Poppins';
-    font-weight: normal;
-}
-#root{
-    width:100%; 
-    background-color:#ececec;
-} 
- 
-
- h1{
-     color:$primary;
-     font-size:30px;
- }

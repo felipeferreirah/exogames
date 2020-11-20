@@ -1,0 +1,19 @@
+@import './../../styles/global.scss';
+
+.select__placetop{
+  font-size:16px;
+}
+.select__element{
+  &::placeholder {
+    font-size:14px;
+  }
+
+  font-family:DMSans;
+  color:$secondary;
+  background:transparent;
+  display: inline-block;
+  padding:10px;
+  text-decoration: none;
+  font-size:16px;
+  border:2px solid $night;
+}

@@ -1,120 +1,79 @@
-  import React from 'react';
+import React from 'react';
 
-  //Router imports
-  import { spring, AnimatedSwitch,AnimatedRoute } from 'react-router-transition'
-  import { BrowserRouter as Router, Route }       from 'react-router-dom'
+//Router imports
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { AnimatedRoute } from 'react-router-transition';
 
-  //Chamando todas as pages
-  import Explorar     from './pages/explorar/explorar';
-  import Search       from './pages/search/search'; 
-  import Plus         from './components/plus/plus';
-  import Messenger    from './pages/messenger/messenger'; 
-  import Notification from './pages/notification/notification'; 
-  //Chamando todos os elements
-  import TabTop       from './components/tab-top/tab-top';
-  import TabBottom    from './components/tab-bottom/tab-bottom';  
+//Chamando todas as pages
+import Home from './pages/website/home/home';
+import Jobs from './pages/website/jobs/jobs';
+import Reports from './pages/website/reports/reports';
+import JobDetail from './pages/website/job-detail/job-detail';
+import HomeAdmin from './pages/admin/home/home-admin';
+import Login from './pages/admin/login/login';
+import NovoReport from './pages/admin/novo-report/novo-report';
+import NovoJobs from './pages/admin/novo-jobs/novo-jobs';
 
-  //Chamando todos os helpers
-  // import ScrollToTop from './elements/helper/ScrollToTop.js';
+// components
+import Footer from './components/footer/footer';
+import Header from './components/header/header';
+import HeaderMin from './components/header-min/header-min';
+import FooterAdmin from './components/footer-admin/footer-admin';
+
+//tanslate
+import Language from "./services/translate/language";
+
+//auth login
+import {isAuthenticated} from './services/auth/auth';
+
+const PrivateRoute = ({component: Component, ...rest}) => (
+  <Route {...rest} render={props => (
+    isAuthenticated() ? (
+      <Component {...props} />
+    ) : (
+      <Redirect to={{pathname: '/home/login', state: {from: props.location} }} />
+    )
+  )}/>
+)
+
+export default function App() {
+
+  const subdomain = window.location.hostname.split('.')[0];
+  const selectLanguage = subdomain === 'en' ? 'english' : 'portugues';
+  const lang = Language[selectLanguage];
+
+  return (
+  <>
+    <AnimatedRoute
+    path={["*/login"]}
+    exact
+    component={Login}
+    atEnter={{ offset: 100,opacity:0 }}
+    atActive={{ offset: 0,opacity:90 }}
+    atLeave={{ offset: 100,opacity:0 }}
+
+    mapStyles={(styles) => ({
+      transform: `translateY(${styles.offset}%)`,
+      position: 'fixed',
+      zIndex:3,width:'100%'
+    })}
+    />
+
+    <Route path={["/home","/jobs", "/", "/home/*","/reports"]} exact component={Header} />
+    <Switch>
+      <Route path={["/home", "/", "/home/*"]} exact  render={() => <Home {...lang} language={lang}/>} />
+      <Route path="/jobs" exact component={Jobs} />
+      <Route path="/reports" exact component={Reports} />
+      <Route path="/jobs/detail/:idJob?"   component={JobDetail} />
+      <PrivateRoute path="/admin" exact component={HomeAdmin} />
+      <PrivateRoute path="/admin/jobs/novo/" component={NovoJobs} />
+      <PrivateRoute path="/admin/jobs/editar/:idJob?" component={NovoJobs} />
+      <PrivateRoute path="/admin/reports/novo" component={NovoReport} />
+    </Switch>
+    <Route path={["/home","/jobs*", "/", "/home/*","/reports"]} exact component={Footer} />
+    <Route path={["/admin*"]} exact component={FooterAdmin} />
+  </>
+    )
+}
 
 
-  //style para troca de Page
-  function mapStyles(styles) {
-    return{
-      position: styles.transitionIndex <= 1 ? 'relative' : 'absolute',
-      width: '100%',
-      height: '100%',
-      transform:`translateX(${styles.offset}px`,
-      opacity: styles.opacity,
-      }
-    }
-
-    // Helper para o efeito de transição
-    function glide(val) {
-      return spring(val, {
-        stiffness: 174,
-        damping: 19,
-      });
-    }
-
-    // Tipo de transição do AnimatedSwitch
-    const glideTransition = {
-      //Primeiro estado - atEnter
-      atEnter: {
-        offset: 200,
-        opacity: 0,
-        transitionIndex: 0,
-      },
-      //Segundo estado - atLeave
-      atLeave: {
-        offset: glide(-100),
-        opacity: glide(0),
-        transitionIndex: 2,
-      },
-      //Terceito estado - atActive
-      atActive: {
-        offset: glide(0),
-        opacity: glide(1),
-        transitionIndex: 1,
-      },
-    };
-    //style para troca do Topo (tab bottom)
-    function mapStylesBar(styles) {
-      return {
-        opacity: styles.opacity,
-        transform: `translateY(${styles.offset}px)`,
-        zIndex:  styles.opacity,
-   
-      };
-    }
-
-
-    // Helper para o efeito de transição bounce
-    function bounce(val) {
-      return spring(val, {
-        stiffness: 330,
-        damping: 22,
-      });
-    }
-    // Tipo de transição do AnimatedRoute Topo (Search / Back)
-    const bounceTransitions = {
-      atEnter: {
-        opacity: 0,
-        offset: 200,
-      },
-      atLeave: {
-        opacity: bounce(0),
-        offset: glide(-100),
-      },
-      atActive: {
-        opacity: bounce(1),
-        offset: glide(0),
-      },
-    };
-
-    
-export default function App() { 
-
-     return (<Router>
-        <Route render={props => (
-            <div className="container"> 
-               
-              <AnimatedRoute  className="container__tab-top"    path={["/asd"]}  component={TabTop}    {...bounceTransitions} mapStyles={mapStylesBar} />
-              <AnimatedRoute  className="container__plus"       path= {["/*/plus"]}  exact  component={Plus}      {...bounceTransitions} mapStyles={mapStylesBar} />
-
-              <AnimatedSwitch className={"container__wrapper "} {...glideTransition} mapStyles={mapStyles}>
-                <Route path={["/home", "/"]} exact component={Explorar}  />
-                <Route path="/search" exact component={Search}      /> 
-                <Route path="/messenger" exact component={Messenger}      /> 
-                <Route path="/notification" exact component={Notification}      /> 
-                
-              </AnimatedSwitch>
-
-              <AnimatedRoute  className="container__tab-bottom" path={["/*", "/"]}  component={TabBottom} {...bounceTransitions} mapStyles={mapStylesBar} />
-            </div>
-
-          )} />
-        </Router>)
-      
-      };
- 

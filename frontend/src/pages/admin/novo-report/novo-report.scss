@@ -1,0 +1,41 @@
+@import './../../../styles/global.scss';
+
+.novo-report{
+  section{
+    padding: 40px 10px 0 10px;
+  }
+  .novo-report__input{
+    width:100%;
+    margin-bottom: 40px;
+
+
+
+  }
+  .input__element, .novo-report__select{
+    width:500px;
+    margin-bottom: 40px;
+    @include for-tablet-landscape-down{
+
+      width: 100%;
+    }
+
+    input{
+      width:100%;
+      padding:10px;
+    }
+
+  }
+  .select__element{
+    @include for-tablet-landscape-down{
+      width: 100%;
+    }
+  }
+  .button{
+    @include for-tablet-landscape-down{
+      margin: auto;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+}

@@ -1,0 +1,89 @@
+@import './../../styles/global.scss';
+
+.header { 
+  background-color:$secondary;
+  background-position:center ;
+  background-repeat:no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ 
+
+  .header__top {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: flex-start;
+    padding: 10px 24px;
+    z-index: 2;
+
+ 
+
+  }
+
+  .header__logo {
+    text-align: left;
+    left: -5px;
+    position: relative;
+    z-index: 1;
+    min-width: 150px;
+
+    .header__svg {
+      width:100%;
+      max-width: 152px;
+      margin:auto;
+      fill:$white;
+      transition: all 0.2s;
+    }
+  }
+
+  
+  .header__nav{
+    
+    background: black;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;  
+
+  
+      justify-content: flex-end;
+      flex-direction:unset;
+      height:auto;
+      padding:0;
+      background:transparent;
+      position: static;
+      text-align:right;
+      transform: translate3d(0, 0, 0);
+    
+  }
+  .header__center-text{
+    width: 100%;
+    max-width: 1170px;
+    margin: auto;
+    align-self: flex-end;
+    p,h1{
+      color:$white;
+      text-align: center;
+    }
+  }
+  .header__align-text{
+    max-width: 585px;
+    width:100%;
+    padding-left: 25px;
+
+    h1{
+      margin-bottom:30px;
+    }
+
+    h1, p{
+      text-align: left;
+    }
+
+  }
+
+}

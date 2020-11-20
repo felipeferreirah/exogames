@@ -1,27 +1,14 @@
-import React, { Component } from 'react';
-import './button.scss'; 
-/**
- * Aquivo topo voltar
- * Esse arquivo é chamado pelo router quando não está no /Home/* ou /.
- */
-class Back extends Component {
-  constructor(props){
-    super(props);
-    this.goBack = this.goBack.bind(this);
-  }
-  goBack(){
-    this.props.history.goBack();
-}
-  render() {
-    return (
-      <header className="main_header ">
-          <div onClick={this.goBack} className="go-back">
-         voltar
-        </div>
-      </header>
+import React from 'react';
+import './button.scss';
+import {Link} from 'react-router-dom';
 
-    );
-  }
+function Button(props) {
+  const sub = props.type;
+  return (
+    sub ?
+    <button className={`${props.className || ''} button`} type="submit">{props.children || 'Enviar'}</button>
+    :
+    <Link className={`${props.className || ''} button`} to={props.to || '/'} onClick={props.onClick}> {props.children}</Link>
+  );
 }
-
-export default Back;
+export default Button;

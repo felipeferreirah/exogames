@@ -1,0 +1,16 @@
+@import './../../styles/global.scss';
+
+.nav{
+
+  a{
+    color:$gray;
+    font-size: 16px;
+    text-decoration: none;
+    padding:0 13px;
+
+   
+   &:hover{
+     color:$white
+   }
+  }
+}
