@@ -6,19 +6,11 @@ import { AnimatedRoute } from 'react-router-transition';
 
 //Chamando todas as pages
 import Home from './pages/home/home';
-import Jobs from './pages/website/jobs/jobs';
-import Reports from './pages/website/reports/reports';
-import JobDetail from './pages/website/job-detail/job-detail';
-import HomeAdmin from './pages/admin/home/home-admin';
 import Download from './pages/Download/Download';
-import NovoReport from './pages/admin/novo-report/novo-report';
-import NovoJobs from './pages/admin/novo-jobs/novo-jobs';
 
 // components
 import Footer from './components/footer/footer';
 import Header from './components/header/header';
-import HeaderMin from './components/header-min/header-min';
-import FooterAdmin from './components/footer-admin/footer-admin';
 
 //tanslate
 import Language from "./services/translate/language";
@@ -62,12 +54,9 @@ export default function App() {
     <Route path={["/home","/jobs", "/", "/home/*","/reports"]} exact component={Header} />
     <Switch>
       <Route path={["/home", "/", "/home/*"]} exact  render={() => <Home {...lang} language={lang}/>} />
-      <Route path="/jobs" exact component={Jobs} />
-      <Route path="/reports" exact component={Reports} />
-      <Route path="/jobs/detail/:idJob?"   component={JobDetail} />
+
     </Switch>
     <Route path={["/home","/jobs*", "/", "/home/*","/reports"]} exact component={Footer} />
-    <Route path={["/admin*"]} exact component={FooterAdmin} />
   </>
     )
 }
