@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Router imports
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { AnimatedRoute } from 'react-router-transition';
 
 //Chamando todas as pages
@@ -15,18 +15,6 @@ import Header from './components/header/header';
 //tanslate
 import Language from "./services/translate/language";
 
-//auth login
-import {isAuthenticated} from './services/auth/auth';
-
-const PrivateRoute = ({component: Component, ...rest}) => (
-  <Route {...rest} render={props => (
-    isAuthenticated() ? (
-      <Component {...props} />
-    ) : (
-      <Redirect to={{pathname: '/home/login', state: {from: props.location} }} />
-    )
-  )}/>
-)
 
 export default function App() {
 
