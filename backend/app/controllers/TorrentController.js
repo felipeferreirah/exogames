@@ -1,33 +1,33 @@
-const TorrentSearchApi = require("torrent-search-api");
-const extractData = require("../helpers/HtmlExtractor");
+    const TorrentSearchApi = require("torrent-search-api");
+    const extractData = require("../helpers/HtmlExtractor");
 
-const { convertDate } = require("../helpers/util");
+    const { convertDate } = require("../helpers/util");
 
-// TorrentSearchApi.enablePublicProviders();
-TorrentSearchApi.enableProvider("1337x");
+    // TorrentSearchApi.enablePublicProviders();
+    TorrentSearchApi.enableProvider("ThePirateBay");
 
-class TorrentController {
-  async search(req, res) {
-    let getTorrents = await TorrentSearchApi.search(req.params.query, "Games");
+    class TorrentController {
+      async search(req, res) {
+        let getTorrents = await TorrentSearchApi.search(req.params.query, "Games");
 
-    let torrentHtmlDetail = await Promise.all(
-      getTorrents.map(torrent => TorrentSearchApi.getTorrentDetails(torrent))
-    );
+        let torrentHtmlDetail = await Promise.all(
+          getTorrents.map(torrent => TorrentSearchApi.getTorrentDetails(torrent))
+        );
 
-    let torrents = [];
-    getTorrents.map((torrent, index) => {
-      torrents.push({
-        title: torrent.title,
-        time: convertDate(torrent.time),
-        peers: torrent.peers,
-        seeds: torrent.seeds,
-        size: torrent.size,
-        data: extractData(torrentHtmlDetail[index])
-      });
-    });
+        let torrents = [];
+        getTorrents.map((torrent, index) => {
+          torrents.push({
+            title: torrent.title,
+            time: convertDate(torrent.time),
+            peers: torrent.peers,
+            seeds: torrent.seeds,
+            size: torrent.size,
+            data: extractData(torrentHtmlDetail[index])
+          });
+        });
 
-    return res.json(torrents);
-  }
-}
+        return res.json(torrents);
+      }
+    }
 
-module.exports = new TorrentController();
+    module.exports = new TorrentController();
