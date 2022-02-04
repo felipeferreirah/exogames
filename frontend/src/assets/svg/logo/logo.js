@@ -1,20 +1,20 @@
 import React from "react";
 import './logo.scss';
 
-  function Logo(props) {
-    const color      = props.color || 'white';
-    const className = props.className;
-    const stroke = props.stroke || '1';
+function Logo(props) {
+  const color = props.color || 'orange';
+  const className = props.className;
+  const stroke = props.stroke || '1';
 
-    return (
+  return (
 
-      <svg
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       style={{ isolation: "isolate" }}
       width="404.723"
       height="78.17pt"
       viewBox="343.5 -69.67 303.542 78.17"
-      className={ `logo  ${ className }`}
+      className={`logo ${className}`}
       fill={color}
     >
       <defs>
@@ -22,6 +22,7 @@ import './logo.scss';
           <path d="M343.5 -69.67H647.0419999999999V8.5H343.5z"></path>
         </clipPath>
       </defs>
+
       <g clipPath="url(#_clipPath_6dMNwCdOySyGZJKbbzTfLOlWsCTATMxi)">
         <path
           fill="none"
@@ -34,9 +35,7 @@ import './logo.scss';
         ></path>
       </g>
     </svg>
-  )};
-
+  )
+};
 
 export default Logo;
-
-

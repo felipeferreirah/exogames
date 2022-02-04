@@ -1,22 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
+import { Container, Row, Col } from "react-bootstrap";
+import ExoButton from "../../components/exoButton/exoButton";
+
 import './home.scss';
 
 function Home() {
   const [torrents, setTorrents] = useState([]);
-  const [queryTorrent, setQueryTorrent] = useState("macOs");
+  const [queryTorrent, /* setQueryTorrent */] = useState("macOs");
 
-  const onChangeHandler = e => {
+  /* const onChangeHandler = e => {
     setQueryTorrent(e.target.value)
-  }
+  } */
 
-  const callTorrent = (param) =>{
+  const callTorrent = (param) => {
     axios.get(`http://127.0.1:3030/search/${param}`)
-    .then((res) => {
-      setTorrents(res.data)
-    });
+      .then((res) => {
+        setTorrents(res.data)
+      });
   };
-
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,35 +29,56 @@ function Home() {
 
   }, [queryTorrent]);
 
+  return (
+    <Container fluid>
+      <Row>
+        <Col md={{span: 10, offset: 2}}>
+          <main className="explorar">
+            <section className="explorar__cards">
+              {torrents && torrents.map((torrent, index) => (
 
+                <div key={index} className="explorar__card">
+                  
+                  <img 
+                    className="explorar__img" 
+                    alt={torrent.title} 
+                    src={torrent.data.cover ? `${torrent.data.cover}`
+                    : 'https://static.thenounproject.com/png/2999524-200.png'} 
+                  />
 
-    return (
-    <>
+                  <div className="explorar__card-info">
+                    <h3>{torrent.title} </h3>
+                    
+                    <Row>
+                      <Col md={6}>
+                        <p>Peers: {torrent.peers} </p>
+                      </Col>
 
-      <input type="text" className="search-input" placeholder="Digite o nome" onChange={onChangeHandler} value={queryTorrent}/>
+                      <Col md={6}>
+                        <p>Seeds: {torrent.seeds} </p>
+                      </Col>
+                    </Row>
 
-      <main className="explorar">
-       <section className="explorar__cards">
-       {torrents && torrents.map((torrent, index) => (
-        <div  key={index} className="explorar__card">
-            <img className="explorar__img" src={torrent.data.cover
-                  ? `${torrent.data.cover}`
-                  : 'https://static.thenounproject.com/png/2999524-200.png'} />
-            <div className="explorar__card-info">
-              <h2>{torrent.title} </h2>
-              <h3>{torrent.magnetlink}</h3>
-              <h3>{torrent.time}</h3>
-              <p>peers: {torrent.peers} </p>
-              <p>seeds: {torrent.seeds}</p>
-              <p>size: {torrent.size}</p>
-              <div className="exo__btn-secundary">Download</div>
-            </div>
+                    <Row>
+                      <Col md={6}>
+                        <p>Tamanho: {torrent.size} </p>
+                      </Col>
 
-        </div>
-      ))}
-       </section>
-		  </main>
-    </>
+                      <Col md={6}>
+                        <p>Seeds: {torrent.seeds} </p>
+                      </Col>
+                    </Row>
+
+                    <ExoButton text="Baixar o" action="/download" />
+                  </div>
+
+                </div>
+              ))}
+            </section>
+          </main>
+        </Col>
+      </Row>
+    </Container>
   );
 
 }

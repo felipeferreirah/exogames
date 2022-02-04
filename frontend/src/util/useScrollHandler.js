@@ -13,10 +13,12 @@ useEffect(() => {
 
   document.addEventListener("scroll", onScroll)
 
- return () => {
+  return () => {
     document.removeEventListener("scroll", onScroll)
     }
   }, [scroll, setScroll])
+
   return !scroll
 }
+
 export default useScrollHandler;

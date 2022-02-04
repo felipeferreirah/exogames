@@ -1,29 +1,55 @@
-import React,{useState} from 'react';
-import './header.scss';
-import Nav from './../nav/nav';
-import Logo from './../../assets/svg/logo/logo';
-import IconMenu from './../../assets/svg/icon-menu/icon-menu'; 
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Row, Col, Dropdown } from "react-bootstrap";
 
- function Header() { 
+import ExoButton from "../exoButton/exoButton";
 
- 
- 
+import "./header.scss";
+
+const Header = () => {
+
   return (
-      <>
-        <header className= 'home--banner header'  >
-          <div  className='header__top'>
-            <Link to="/" className="header__logo">
-              <Logo className="header__svg" />
-            </Link>
-            <div>
-              <IconMenu className='open'></IconMenu>
-            </div>
-            <Nav className= 'header__nav'/>
+    <div className="main-header">
+      <Row>
+        <Col md={1}>
+          <div className="main-logo">
+            <Dropdown>
+              <Dropdown.Toggle
+                className="exo-gradient"
+                variant="success"
+                id="dropdown-basic"
+              >
+                Games
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu className="exo-drop-menu">
+                <Dropdown.Item className="exo-drop-item" href="/music">Músicas</Dropdown.Item>
+                <Dropdown.Item className="exo-drop-item" href="/movies">Filmes</Dropdown.Item>
+                <Dropdown.Item className="exo-drop-item" href="/adult">Adulto</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
-           
-        </header>
-      </>
-    );
-  }
+        </Col>
+
+        <Col md={{ span: 10, offset: 1 }}>
+          <div className="main-search">
+            <div class="input-group mb-3">
+              <input 
+                type="text" 
+                class="form-control input-main-search" 
+                placeholder="Games, Filmes ou Músicas..." 
+                aria-label="Games, Filmes ou Músicas..." 
+                aria-describedby="main-search"
+              />
+                
+              <div class="button-main-search">
+                <ExoButton text="o" action="/download" />
+              </div>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </div>
+  )
+}
+
 export default Header;

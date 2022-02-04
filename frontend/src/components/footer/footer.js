@@ -1,16 +1,12 @@
-import React from 'react';
-import './footer.scss'; 
-import Dash from './../../components/dash/dash'
+import React from "react";
 
-function Footer() {
+const Footer = () => {
+
   return (
     <div className="footer">
-      <section> 
-        <p>footer</p>
-      </section>
-      <Dash className="footer__dash" />
+      bzweeeeeeeeee @ todos directs reserveds
     </div>
-  );
+  )
 }
 
 export default Footer;

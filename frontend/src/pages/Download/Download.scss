@@ -1,11 +1,6 @@
 @import './../../styles/global.scss';
 .Download{
-  background:$primary;
-  height: 500px;
-  width: 500px;
-  margin-top: 50%;
-  transform: translate(0,-50%);
-  margin: auto;
-  margin-top: 50%;
-  background: red;
+  background:$secondary;
+  height:100vh;
+  width:100%;
 }

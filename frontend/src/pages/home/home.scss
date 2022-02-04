@@ -1,27 +1,31 @@
 @import './../../styles/global.scss';
+
 .explorar{
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background: #242424;
+  overflow: hidden;
 
   .explorar__cards{
-
-    width:100%;
-    max-width:1980px;
+    width: 100%;
     height:auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
   }
 
   .explorar__card{
-
     width: calc(25% - 10px);
     margin:5px;
-    background:$secondary;
+    padding: 10px;
+    background: $black;
     display: flex;
     flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid #272727;
 
     .explorar__img{
-
       width: 100%;
       margin-left: 50%;
       transform: translateX(-50%);
@@ -30,9 +34,12 @@
     .explorar__card-info{
       width:100%;
       margin-top:auto;
+      display: block;
     }
 
-
+    .explorar__card-info:hover{
+      display: block;
+      background: #333;
+    }
   }
-
 }

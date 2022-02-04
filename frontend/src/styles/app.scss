@@ -1,4 +1,6 @@
 // Os resets necessários para fluir melhor o desenvolvimento
+@import "~bootstrap/scss/bootstrap";
+
 * {
   margin: 0;
   padding: 0;
@@ -43,7 +45,7 @@ body {
 }
 
 section {
-  max-width: 1170px;
+  max-width: 100%;
   margin: auto;
 }
 
@@ -61,6 +63,30 @@ p {
   }
 
 }
+
+/*-------bootstrap modifications-----------*/
+
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu), 
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n + 3){
+  border-radius: 40px;
+}
+
+/*-------bootstrap modifications-----------*/
+
+.exo-gradient{
+  background-image: linear-gradient(to right, $primary , $secondary);
+  padding: 3px 8px 3px 8px;
+  border-radius: 40px;
+  border: none;
+  width: 100%;
+}
+
+.exo-gradient:hover{
+  background-image: linear-gradient(to left, $secondary , $secondary);
+  cursor: pointer;
+  transition: all .2s;
+}
+
 .exo__btn-primary{
   background:$primary;
   color:$foreground;
