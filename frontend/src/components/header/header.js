@@ -32,17 +32,17 @@ const Header = () => {
 
         <Col md={{ span: 10, offset: 1 }}>
           <div className="main-search">
-            <div class="input-group mb-3">
+            <div className="input-group mb-3">
               <input 
                 type="text" 
-                class="form-control input-main-search" 
+                className="form-control input-main-search" 
                 placeholder="Games, Filmes ou Músicas..." 
                 aria-label="Games, Filmes ou Músicas..." 
                 aria-describedby="main-search"
               />
                 
-              <div class="button-main-search">
-                <ExoButton text="o" action="/download" />
+              <div className="button-main-search">
+                <ExoButton noText action="/download" />
               </div>
             </div>
           </div>

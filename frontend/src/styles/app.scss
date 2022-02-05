@@ -22,6 +22,10 @@ body {
   color:$white;
 }
 
+.space{
+  margin-top: 2em;
+}
+
 #root {
   width: 100%;
 
@@ -50,12 +54,11 @@ section {
 }
 
 p {
-  font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.91;
   letter-spacing: normal;
+  font-size: 13px;
   color: $white;
 
   @include for-tablet-landscape-down {
@@ -85,6 +88,11 @@ p {
   background-image: linear-gradient(to left, $secondary , $secondary);
   cursor: pointer;
   transition: all .2s;
+}
+
+.exo-icon{
+  float: right;
+  margin-right: 1em;
 }
 
 .exo__btn-primary{

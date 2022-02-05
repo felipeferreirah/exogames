@@ -1,15 +1,20 @@
+@import './../../styles/global.scss';
+
 .main-sidebar{
-  background: #333;
-  width: 100%;
+  width: auto;
+  padding: 0 60px 0 0px;
+  height: 100%;
+  position: absolute;
+  background: #1a1a1a;
 }
 
 .sidebar-items{
   list-style: none;
   justify-content: left;
   left: 0;
-  width: 15%;
+  width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   padding: 10px;
   background: #1a1a1a;
 }
@@ -18,6 +23,7 @@
   padding: 8px 8px 8px 20px;
   border-radius: 40px;
   width: auto;
+  font-size: 13px;
 }
 
 .sidebar-item:hover{
@@ -29,4 +35,9 @@
 .sidebar-item a, .sidebar-item a:hover{
   text-decoration: none;
   color: #fff;
+}
+
+.sidebar-section{
+  background: #1a1a1a;
+  margin: 0 0 10px 15px;
 }

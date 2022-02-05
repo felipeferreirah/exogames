@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 import "./exoButton.scss";
 
-const ExoButton = ({text, action}) => {
+const ExoButton = ({text, noText, action}) => {
 
   let history = useHistory();
 
@@ -18,7 +18,11 @@ const ExoButton = ({text, action}) => {
       className="exo-gradient exo-button" 
       onClick={ () => goTo() }
     >
-      {text}
+      <b>{text}</b>
+
+      <span className={noText ? "" : "exo-icon"}>
+        <b>o</b>
+      </span>
     </Button>
   )
 }
