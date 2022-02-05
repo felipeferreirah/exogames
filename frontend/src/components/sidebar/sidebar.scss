@@ -2,10 +2,11 @@
 
 .main-sidebar{
   width: auto;
-  padding: 0 60px 0 0px;
+  padding: 0 40px 0 0px;
   height: 100%;
   position: absolute;
   background: #1a1a1a;
+  border-bottom-right-radius: 50px;
 }
 
 .sidebar-items{
@@ -20,7 +21,7 @@
 }
 
 .sidebar-item{
-  padding: 8px 8px 8px 20px;
+  padding: 8px 20px 8px 20px;
   border-radius: 40px;
   width: auto;
   font-size: 13px;

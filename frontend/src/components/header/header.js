@@ -32,7 +32,7 @@ const Header = () => {
 
         <Col md={{ span: 10, offset: 1 }}>
           <div className="main-search">
-            <div className="input-group mb-3">
+            <div className="input-group mb-3" style={{overflow: 'hidden'}}>
               <input 
                 type="text" 
                 className="form-control input-main-search" 

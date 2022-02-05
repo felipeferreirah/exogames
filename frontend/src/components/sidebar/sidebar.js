@@ -7,7 +7,7 @@ import "./sidebar.scss";
 const Sidebar = () => {
 
   return (
-    <div className="main-sidebar">
+    <div className="main-sidebar"><br/>
       <Row>
         <Col md={12}>
           <nav>
@@ -25,7 +25,7 @@ const Sidebar = () => {
               </div>
 
               <div className="sidebar-item">
-                <Link to="/not-installed"> Não instalados </Link>
+                <Link to="/not-installed"> Não instaladosddddd </Link>
               </div>
             </div>
           </nav>

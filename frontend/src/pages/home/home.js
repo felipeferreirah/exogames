@@ -33,6 +33,14 @@ function Home() {
 
   }, [queryTorrent]);
 
+  const showInfo = () => {
+    setStyle({ display: 'block' });
+  };
+
+  const hideInfo = () => {
+    setStyle({ display: 'none' });
+  }
+
   return (
     <Row>
       <Col md={{ span: 10, offset: 2 }}>
@@ -47,8 +55,8 @@ function Home() {
                   <Col md={3} key={index}>
                     <div
                       className="explorar__card"
-                      onMouseEnter={() => setStyle({ display: 'block' })}
-                      onMouseLeave={() => setStyle({ display: 'none' })}
+                      onMouseEnter={() => showInfo(index)}
+                      onMouseLeave={() => hideInfo()}
                     >
                       <img
                         className="explorar__img"
@@ -56,7 +64,7 @@ function Home() {
                         src={torrent.data.cover ? `${torrent.data.cover}`
                           : 'https://static.thenounproject.com/png/2999524-200.png'}
                       />
-
+                      
                       <div className="explorar__card-info" style={style}>
                         <h2 className="torrent-title">{torrent.title} </h2>
 
