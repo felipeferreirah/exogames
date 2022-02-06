@@ -8,13 +8,15 @@ import './home.scss';
 
 function Home() {
   const [torrents, setTorrents] = useState([]);
-  const [pageLoad, setPageLoad] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [style, setStyle] = useState({ display: 'none' });
-  let split = window.location.pathname.split("/")[2];
-  let urlString = split !== undefined ? split : "";
+  const split = window.location.pathname.split("/")[2];
+  const urlString = split !== undefined ? split : "";
 
   const callTorrent = (param) => {
     if (param) {
+      setLoading(true);
+
       axios.get(`http://127.0.1:3030/search/${param}`)
       .then((res) => {
         if (res.data.msg) {
@@ -23,17 +25,13 @@ function Home() {
           setTorrents(res.data);
         }
 
-        setPageLoad(false);
+        setLoading(false);
       });
     }
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      callTorrent(urlString);
-    }, 800);
-
-    return () => clearTimeout(timer);
+    callTorrent(urlString);
   }, [urlString]);
 
   const showInfo = () => {
@@ -55,7 +53,7 @@ function Home() {
             </div>
           ) : (
             <section className="explorar__cards">
-              {pageLoad ? (
+              {loading ? (
                 <div>
                   <div className="space" />
                   <h1>Carregando {urlString ? `resultados para ${urlString}...` : "lista..."}</h1>
@@ -70,7 +68,7 @@ function Home() {
                   ) : (
                     <>
                       {torrents.map((torrent, index) => {
-                        
+
                         return (
                           <Col md={3} key={index}>
                             <div
@@ -122,7 +120,8 @@ function Home() {
                               </div>
                             </div>
                           </Col>
-                        )}
+                        )
+                      }
                       )}
                     </>
                   )}

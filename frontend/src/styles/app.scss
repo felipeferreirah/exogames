@@ -86,7 +86,7 @@ p {
 }
 
 .exo-gradient:hover{
-  background-image: linear-gradient(to left, $secondary , $secondary);
+  background-image: linear-gradient(to right, $secondary , $third-color);
   cursor: pointer;
   transition: all .2s;
 }
