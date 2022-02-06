@@ -17,3 +17,24 @@
 @mixin for-big-desktop-up {
   @media (min-width: 1800px) { @content; }
 }
+
+@media (max-width: 599px) {
+  .col-browser-actions {
+    display: none;
+  }
+
+  .col-logo{
+    display: flex;
+    position: absolute;
+  }
+
+  .col-search{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .col-content{
+    background: #fc0
+  }
+}

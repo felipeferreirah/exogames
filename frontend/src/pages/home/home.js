@@ -44,7 +44,7 @@ function Home() {
 
   return (
     <Row>
-      <Col md={{ span: 10, offset: 2 }}>
+      <Col md={{ span: 10, offset: 2 }} className="col-content">
         <main className="explorar">
           {urlString === "" ? (
             <div>

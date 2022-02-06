@@ -38,7 +38,7 @@ const Header = () => {
   return (
     <div className="main-header">
       <Row>
-        <Col md={2}>
+        <Col sm xs={12} md={2} className="col-logo">
           <div className="main-logo">
             <span className="logo exo-gradient">▲<b>xo</b></span>
 
@@ -60,7 +60,7 @@ const Header = () => {
           </div>
         </Col>
 
-        <Col md={{ span: 1 }}>
+        <Col sm xs={12} md={{ span: 1 }} className="col-browser-actions">
           <div className="browser-actions">
             <span className="exo-control" onClick={goBack}> {"<<"} </span>
             <span className="exo-control" onClick={goForward}> {">>"} </span>
@@ -68,7 +68,7 @@ const Header = () => {
           </div>
         </Col>
 
-        <Col md={{ span: 7 }}>
+        <Col sm xs={12} md={{ span: 7 }} className="col-search">
           <div className="main-search">
             <form method="get" onSubmit={handleSearch}>
               <div className="input-group mb-3" style={{overflow: 'hidden'}}>
@@ -91,7 +91,7 @@ const Header = () => {
           </div>
         </Col>
 
-        <Col md={{ span: 1, offset: 1 }}>
+        <Col sm xs={12} md={{ span: 1, offset: 1 }} className="col-browser-actions">
           <div className="browser-actions window-control">
             <span className="exo-control"> ▁ </span>
             <span className="exo-control"> ■ </span>
