@@ -22,7 +22,11 @@ const ExoButton = ({text, noText, action}) => {
       className="exo-gradient exo-button" 
       onClick={ () => goTo() }
     >
-      <b>{text}</b>
+      {!noText && (
+        <span className="exo-button-text">
+          <b>{text}</b>
+        </span>
+      )}
 
       <span className={noText ? "" : "exo-icon"}>
         <b>o</b>

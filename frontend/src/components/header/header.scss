@@ -57,21 +57,25 @@
 }
 
 .exo-control{
-  width: 30px;
-  height: 30px;
+  min-width: 33px;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: $foreground;
   font-weight: 700;
   text-align: center;
   margin-left: 5px;
-  padding: 5px;
+  padding: 2px;
   border-radius: 5px;
   border: 2px solid $foreground;
 }
 
+.exo-control:hover{
+  cursor: pointer;
+}
+
 .main-search{
-  margin: 0 0 0 15px;
+  margin: 0 0 0 2em;
 }
 
 .input-main-search{
@@ -87,4 +91,9 @@
   right: 0;
   width: 54px;
   z-index: 99;
+}
+
+.window-control{
+  position: absolute;
+  right: 1em;
 }

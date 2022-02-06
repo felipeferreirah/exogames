@@ -23,6 +23,18 @@ const Header = () => {
     }
   }
 
+  const goBack = () => {
+    history.goBack();
+  }
+
+  const goForward = () => {
+    history.goForward();
+  }
+
+  const refresh = () => {
+    window.location.reload();
+  }
+
   return (
     <div className="main-header">
       <Row>
@@ -50,9 +62,9 @@ const Header = () => {
 
         <Col md={{ span: 1 }}>
           <div className="browser-actions">
-            <span className="exo-control"> {"<<"} </span>
-            <span className="exo-control"> {">>"} </span>
-            <span className="exo-control"> O </span>
+            <span className="exo-control" onClick={goBack}> {"<<"} </span>
+            <span className="exo-control" onClick={goForward}> {">>"} </span>
+            <span className="exo-control" onClick={refresh}> O </span>
           </div>
         </Col>
 
@@ -80,7 +92,7 @@ const Header = () => {
         </Col>
 
         <Col md={{ span: 1, offset: 1 }}>
-          <div className="browser-actions">
+          <div className="browser-actions window-control">
             <span className="exo-control"> ▁ </span>
             <span className="exo-control"> ■ </span>
             <span className="exo-control"> <b>X</b> </span>

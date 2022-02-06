@@ -16,15 +16,15 @@ function Home() {
   const callTorrent = (param) => {
     if (param) {
       axios.get(`http://127.0.1:3030/search/${param}`)
-        .then((res) => {
-          if (res.data.msg) {
-            setTorrents([]);
-          } else {
-            setTorrents(res.data);
-          }
+      .then((res) => {
+        if (res.data.msg) {
+          setTorrents([]);
+        } else {
+          setTorrents(res.data);
+        }
 
-          setPageLoad(false);
-        });
+        setPageLoad(false);
+      });
     }
   };
 
