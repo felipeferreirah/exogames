@@ -2,11 +2,12 @@ import React from 'react';
 
 //Router imports
 import { Route, Switch } from 'react-router-dom'
-import { AnimatedRoute } from 'react-router-transition';
+//import { AnimatedRoute } from 'react-router-transition';
 
 //Chamando todas as pages
 import Home from './pages/home/home';
-import Download from './pages/Download/Download';
+import Download from './pages/download/download';
+import Library from './pages/library/library';
 
 // components
 import Sidebar from './components/sidebar/sidebar';
@@ -22,8 +23,8 @@ export default function App() {
 
   return (
     <>
-      <AnimatedRoute
-        path={["*/download"]}
+      {/* <AnimatedRoute
+        path={["/download"]}
         exact
         component={Download}
         atEnter={{ offset: 100, opacity: 0 }}
@@ -35,7 +36,7 @@ export default function App() {
           position: 'fixed',
           zIndex: 3, width: '100%'
         })}
-      />
+      /> */}
 
       <Route
         path={[
@@ -77,6 +78,9 @@ export default function App() {
           ]}
           exact component={Home}
         />
+
+        <Route path={"/downloads"} exact component={Download} />
+        <Route path={"/library"} exact component={Library} />
       </Switch>
 
       <Route

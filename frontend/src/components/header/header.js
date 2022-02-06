@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Dropdown } from "react-bootstrap";
 
 import { useHistory, useParams } from "react-router-dom";
@@ -10,8 +10,22 @@ const Header = () => {
 
   let history = useHistory();
   let { urlString } = useParams();
+  let urlModule = history.location.pathname;
   let [searchString, setSearchString] = useState(urlString || "");
   let hasNotSpaces = searchString.replace(/\s/g, '').length;
+  let [module, setModule] = useState("Games");
+
+  useEffect(() => {
+    if (urlModule === "/music"){
+      setModule("Músicas")
+    }else if (urlModule === "/movies"){
+      setModule("Filmes")
+    }else if (urlModule === "/adult"){
+      setModule("Adulto");
+    }else{
+      setModule("Games");
+    }
+  }, [urlModule]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -48,7 +62,7 @@ const Header = () => {
                 variant="success"
                 id="dropdown-basic"
               >
-                Games
+                {module}
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="exo-drop-menu">

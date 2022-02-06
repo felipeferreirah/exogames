@@ -115,7 +115,7 @@ function Home() {
                                 </Row>
 
                                 <span className="download-button">
-                                  <ExoButton text="Baixar" action="/download" />
+                                  <ExoButton text="Baixar" action="/downloads" />
                                 </span>
                               </div>
                             </div>

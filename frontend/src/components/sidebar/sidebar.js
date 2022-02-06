@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { Row, Col } from "react-bootstrap";
 
 import "./sidebar.scss";
@@ -41,23 +41,23 @@ const Sidebar = () => {
               <h3 className="sidebar-section"> Servidores </h3>
 
               <div className="sidebar-item">
-                <Link to="/pirate-bay"> The Pirate Bay </Link>
+                <Link to="/"> The Pirate Bay </Link>
               </div>
 
               <div className="sidebar-item">
-                <Link to="/3xxy"> 3xxy </Link>
+                <Link to="/"> 3xxy </Link>
               </div>
 
               <div className="sidebar-item">
-                <Link to="/torrent-film"> TorrentFilm </Link>
+                <Link to="/"> TorrentFilm </Link>
               </div>
 
               <div className="sidebar-item">
-                <Link to="/x3-films"> x3Films </Link>
+                <Link to="/"> x3Films </Link>
               </div>
 
               <div className="sidebar-item">
-                <Link to="/juan-carlos"> Juan Carlos </Link>
+                <Link to="/"> Juan Carlos </Link>
               </div>
             </div>
           </nav>

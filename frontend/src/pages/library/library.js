@@ -1,18 +1,18 @@
 import React from 'react';
 import { Row, Col } from "react-bootstrap";
 
-import './download.scss';
+import './library.scss';
 
-function Download() {
+function Library() {
 
 
   return (
     <Row>
       <Col md={{ span: 10, offset: 2 }} className="col-content">
-        <div className="downloads">
+        <div className="library">
           <div className="space" />
 
-          <h1>Downloads</h1>
+          <h1>Biblioteca</h1>
         </div>
       </Col>
     </Row>
@@ -20,4 +20,4 @@ function Download() {
 
 }
 
-export default Download;
+export default Library;
