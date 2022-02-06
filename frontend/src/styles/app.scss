@@ -126,3 +126,26 @@ p {
 
   }
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $dark;
+  border-left: 2px solid $night;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $black;
+  border-radius: 5px;
+  border: 2px solid $night;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $black;
+}

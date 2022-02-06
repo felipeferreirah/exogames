@@ -1,7 +1,7 @@
 @import './../../styles/global.scss';
 
 .main-header{
-  background: #1a1a1a;
+  background: $dark;
   border-bottom: 1px solid #242424;
   padding: 15px 30px 0 20px;
 }
@@ -17,6 +17,10 @@
 
 .main-logo{
   margin-top: 5px;
+}
+
+.browser-actions{
+  position: absolute;
 }
 
 .browser-actions, .main-logo{
@@ -94,6 +98,5 @@
 }
 
 .window-control{
-  position: absolute;
   right: 1em;
 }

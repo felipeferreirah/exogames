@@ -69,58 +69,61 @@ function Home() {
                     </div>
                   ) : (
                     <>
-                      {torrents.map((torrent, index) => (
-                        <Col md={3} key={index}>
-                          <div
-                            className="explorar__card"
-                            onMouseEnter={() => showInfo(index)}
-                            onMouseLeave={() => hideInfo()}
-                          >
-                            <img
-                              className="explorar__img"
-                              alt={torrent.title}
-                              src={torrent.data.cover ? `${torrent.data.cover}`
-                                : 'https://static.thenounproject.com/png/2999524-200.png'}
-                            />
+                      {torrents.map((torrent, index) => {
+                        
+                        return (
+                          <Col md={3} key={index}>
+                            <div
+                              className="explorar__card"
+                              onMouseEnter={() => showInfo()}
+                              onMouseLeave={() => hideInfo()}
+                            >
+                              <img
+                                className="explorar__img"
+                                alt={torrent.title}
+                                src={torrent.data.cover ? `${torrent.data.cover}`
+                                  : 'https://static.thenounproject.com/png/2999524-200.png'}
+                              />
 
-                            <div className="explorar__card-info" style={style}>
-                              <h2 className="torrent-title">{torrent.title} </h2>
+                              <div className="explorar__card-info" style={style}>
+                                <h2 className="torrent-title">{torrent.title} </h2>
 
-                              <div className="space" />
+                                <div className="space" />
 
-                              <Row>
-                                <Col md={6}>
-                                  <p>Peso: <b>{torrent.size}</b> </p>
-                                </Col>
+                                <Row>
+                                  <Col md={6}>
+                                    <p>Peso: <b>{torrent.size}</b> </p>
+                                  </Col>
 
-                                <Col md={6}>
-                                  <p>Disco: <b>{torrent.size}</b> </p>
-                                </Col>
-                              </Row>
+                                  <Col md={6}>
+                                    <p>Disco: <b>{torrent.size}</b> </p>
+                                  </Col>
+                                </Row>
 
-                              <Row>
-                                <Col md={6}>
-                                  <p>Peers: <b>{torrent.peers}</b> </p>
-                                </Col>
+                                <Row>
+                                  <Col md={6}>
+                                    <p>Peers: <b>{torrent.peers}</b> </p>
+                                  </Col>
 
-                                <Col md={6}>
-                                  <p>Seeds: <b>{torrent.seeds}</b> </p>
-                                </Col>
-                              </Row>
+                                  <Col md={6}>
+                                    <p>Seeds: <b>{torrent.seeds}</b> </p>
+                                  </Col>
+                                </Row>
 
-                              <Row>
-                                <Col md={12}>
-                                  <p>Servidor: <b>The Pirate Bay</b> </p>
-                                </Col>
-                              </Row>
+                                <Row>
+                                  <Col md={12}>
+                                    <p>Servidor: <b>The Pirate Bay</b> </p>
+                                  </Col>
+                                </Row>
 
-                              <span className="download-button">
-                                <ExoButton text="Baixar" action="/download" />
-                              </span>
+                                <span className="download-button">
+                                  <ExoButton text="Baixar" action="/download" />
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        </Col>
-                      ))}
+                          </Col>
+                        )}
+                      )}
                     </>
                   )}
                 </>
