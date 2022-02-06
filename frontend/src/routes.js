@@ -37,17 +37,63 @@ export default function App() {
         })}
       />
 
-      <Route path={["/home", "/jobs", "/", "/home/*", "/reports"]} exact component={Header} />
-      
-      <Route path={["/home", "/jobs", "/", "/home/*", "/reports"]} exact component={Sidebar} />
+      <Route
+        path={[
+          "/",
+          "/home/*",
+          "/explore",
+          "/music",
+          "/movies",
+          "/adult",
+          "/downloads",
+          "/library",
+          "/not-installed",
+          "/search/:urlString",
+        ]}
+        exact component={Header}
+      />
+
+      <Route
+        path={[
+          "/",
+          "/home/*",
+          "/explore",
+          "/music",
+          "/movies",
+          "/adult",
+          "/downloads",
+          "/library",
+          "/not-installed",
+          "/search/:urlString",
+        ]}
+        exact component={Sidebar}
+      />
 
       <Switch>
-        <Route path={["/home", "/", "/home/*"]} exact component={Home} />
+        <Route
+          path={[
+            "/",
+            "/search/:urlString"
+          ]}
+          exact component={Home}
+        />
       </Switch>
 
-      <Route path={["/home", "/jobs*", "/", "/home/*", "/reports"]} exact component={Footer} />
+      <Route
+        path={[
+          "/",
+          "/home/*",
+          "/explore",
+          "/music",
+          "/movies",
+          "/adult",
+          "/downloads",
+          "/library",
+          "/not-installed",
+          "/search/:urlString",
+        ]}
+        exact component={Footer}
+      />
     </>
   )
 }
-
-

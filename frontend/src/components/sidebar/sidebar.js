@@ -13,7 +13,7 @@ const Sidebar = () => {
           <nav>
             <div className="sidebar-items">
               <div className="sidebar-item">
-                <Link to="/home"> Explorar </Link>
+                <Link to="/"> Explorar </Link>
               </div>
 
               <div className="sidebar-item">
@@ -25,7 +25,7 @@ const Sidebar = () => {
               </div>
 
               <div className="sidebar-item">
-                <Link to="/not-installed"> Não instaladosddddd </Link>
+                <Link to="/not-installed"> Não instalados </Link>
               </div>
             </div>
           </nav>

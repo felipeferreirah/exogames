@@ -3,7 +3,40 @@
 .main-header{
   background: #1a1a1a;
   border-bottom: 1px solid #242424;
-  padding: 20px 30px 5px 30px;
+  padding: 15px 30px 0 20px;
+}
+
+.logo{
+  width: 80px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.main-logo{
+  margin-top: 5px;
+}
+
+.browser-actions, .main-logo{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.main-dropdown{
+  width: 100px;
+  margin-left: -30px;
+}
+
+#dropdown-basic{
+  height: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
 }
 
 .exo-drop-menu{
@@ -23,17 +56,35 @@
   color: #fff;
 }
 
+.exo-control{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  color: $foreground;
+  font-weight: 700;
+  text-align: center;
+  margin-left: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid $foreground;
+}
+
+.main-search{
+  margin: 0 0 0 15px;
+}
+
 .input-main-search{
   background: #272727;
+  color: #fff;
   border: none;
   width: 100%;
-  padding: 3px 4px 3px 15px;
+  padding: 5px 4px 5px 15px;
 }
 
 .button-main-search{
   position: absolute;
   right: 0;
-  width: 50px;
-  height: 60px;
+  width: 54px;
   z-index: 99;
 }

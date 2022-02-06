@@ -96,25 +96,6 @@ p {
   margin-right: 1em;
 }
 
-.exo__btn-primary{
-  background:$primary;
-  color:$foreground;
-  padding:10px;
-  font-size:16px;
-  width:100%;
-  margin:auto;
-}
-
-.exo__btn-secundary{
-  background:transparent;
-  color:$foreground;
-  border:1px solid $primary;
-  padding:10px;
-  font-size:16px;
-  width:100%;
-  margin:auto;
-}
-
 .half-content__text--right,
 .half-content__text--left {
   max-width: 100%;

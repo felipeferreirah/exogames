@@ -10,7 +10,11 @@ const ExoButton = ({text, noText, action}) => {
   let history = useHistory();
 
   const goTo = () => {
-    history.push(action);
+    if (typeof action == "function"){
+      action();
+    }else{
+      history.push(action);
+    }
   }
 
   return (

@@ -1,18 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Dropdown } from "react-bootstrap";
 
+import { useHistory, useParams } from "react-router-dom";
 import ExoButton from "../exoButton/exoButton";
 
 import "./header.scss";
 
 const Header = () => {
 
+  let history = useHistory();
+  let { urlString } = useParams();
+  let [searchString, setSearchString] = useState(urlString || "");
+  let hasNotSpaces = searchString.replace(/\s/g, '').length;
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (hasNotSpaces){
+      history.push(`/search/${searchString}`);
+    }else{
+      history.push(`/`);
+    }
+  }
+
   return (
     <div className="main-header">
       <Row>
-        <Col md={1}>
+        <Col md={2}>
           <div className="main-logo">
-            <Dropdown>
+            <span className="logo exo-gradient">▲<b>xo</b></span>
+
+            <Dropdown className="main-dropdown">
               <Dropdown.Toggle
                 className="exo-gradient"
                 variant="success"
@@ -30,21 +48,42 @@ const Header = () => {
           </div>
         </Col>
 
-        <Col md={{ span: 10, offset: 1 }}>
+        <Col md={{ span: 1 }}>
+          <div className="browser-actions">
+            <span className="exo-control"> {"<<"} </span>
+            <span className="exo-control"> {">>"} </span>
+            <span className="exo-control"> O </span>
+          </div>
+        </Col>
+
+        <Col md={{ span: 7 }}>
           <div className="main-search">
-            <div className="input-group mb-3" style={{overflow: 'hidden'}}>
-              <input 
-                type="text" 
-                className="form-control input-main-search" 
-                placeholder="Games, Filmes ou Músicas..." 
-                aria-label="Games, Filmes ou Músicas..." 
-                aria-describedby="main-search"
-              />
-                
-              <div className="button-main-search">
-                <ExoButton noText action="/download" />
+            <form method="get" onSubmit={handleSearch}>
+              <div className="input-group mb-3" style={{overflow: 'hidden'}}>
+                <input 
+                  type="text"
+                  value={searchString}
+                  minLength={3}
+                  className="form-control input-main-search" 
+                  placeholder="Games, Filmes ou Músicas..." 
+                  aria-label="Games, Filmes ou Músicas..." 
+                  aria-describedby="main-search"
+                  onChange={(e) => setSearchString(e.target.value)}
+                />
+                  
+                <div className="button-main-search">
+                  <ExoButton noText action={hasNotSpaces ? `/search/${searchString}` : "/"} />
+                </div>
               </div>
-            </div>
+            </form>
+          </div>
+        </Col>
+
+        <Col md={{ span: 1, offset: 1 }}>
+          <div className="browser-actions">
+            <span className="exo-control"> ▁ </span>
+            <span className="exo-control"> ■ </span>
+            <span className="exo-control"> <b>X</b> </span>
           </div>
         </Col>
       </Row>
