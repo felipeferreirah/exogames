@@ -1,5 +1,4 @@
   const { parse } = require('node-html-parser');
-  const { urlExist } = require('url-exist');
 
   module.exports = function extractData(torrentHTML) {
       var data = {};
