@@ -9,8 +9,8 @@
     "start": "concurrently \"npm run back\" \"BROWSER=none  npm run front\" \"wait-on http://localhost:3000 && electron .\"",
     "front": "cd ./frontend/ && npm start",
     "back": "nodemon backend/server.js",
-    "server": "nodemon backend/server.js",
-    "client": "concurrently \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
+    "server": "npm run back",
+    "client": "concurrently \"BROWSER=none  npm run front\" \"wait-on http://localhost:3000 && electron .\"",
     "electron": "electron .",
     "build": "node frontend/scripts/build.js",
     "test": "node frontend/scripts/test.js --env=jsdom"
