@@ -6,9 +6,9 @@
   "homepage": "https://github.com/felipeferreirah/exogames#readme",
   "private": true,
   "scripts": {
+    "start": "concurrently \"npm run back\" \"BROWSER=none  npm run front\" \"wait-on http://localhost:3000 && electron .\"",
     "front": "cd ./frontend/ && npm start",
     "back": "nodemon backend/server.js",
-    "start": "concurrently \"npm run server\" \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
     "server": "nodemon backend/server.js",
     "client": "concurrently \"BROWSER=none  npm run client\" \"wait-on http://localhost:3000 && electron .\"",
     "electron": "electron .",
@@ -25,7 +25,11 @@
     "url": "https://github.com/felipeferreirah/exogames/issues"
   },
   "dependencies": {
+    "concurrently": "^7.1.0",
     "electron": "^18.2.3",
     "nodemon": "^2.0.16"
+  }
+  ,"devDependencies": {
+    "electron": "^18.2.3"
   }
 }
